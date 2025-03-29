@@ -10,12 +10,13 @@ dotenv.config();
 
 const app = express();
 
-app.use("/api/products", productRoutes);
-app.use("/api/orders", orderRoutes);
-
-// Middleware
+// Middleware (IMPORTANT: Place these before routes)
 app.use(cors());
 app.use(express.json());
+
+// Routes
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Simple test route
 app.get("/", (req, res) => {
