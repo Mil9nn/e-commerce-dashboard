@@ -5,10 +5,15 @@ import cors from "cors";
 
 import productRoutes from "./routes/productRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
-
-dotenv.config();
+import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
+
+
+app.use("/api/users", userRoutes);
+
+
+dotenv.config();
 
 // Middleware (IMPORTANT: Place these before routes)
 app.use(cors());
